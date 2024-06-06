@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Data Visualizations</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .graph-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 20px;
+    }
+
+    .graph-frame {
+      border: 1px solid #ccc;
+      padding: 10px;
+      /* position: relative; */
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px; /* Adjust as needed */
+      border: none;
+    }
+
+    .graph-frame.fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: calc(100% - 40px); /* Account for padding and close button height */
+      width: calc(100% - 40px);  /* Add this line to adjust width */
+      z-index: 1000; /* Ensure it's on top */
+      background-color: white;
+      padding: 20px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 6px;
+      width: 30px;
+      height: 30px;
+      background-color: RGBa(0,0,0,0);
+      border: 2px outset #838383;
+      cursor: pointer;
+      z-index: -100;
+    }
+  </style>
+</head>
+<body>
+  <h1>Project Data Visualizations</h1>
+
+  <div class="graph-container">
+        <div class="graph-frame">
+            <h2>File Operations Per Day</h2>
+            <iframe src="file_operations_per_day.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>File Operations Per Day (All)</h2>
+            <iframe src="file_operations_per_day_all.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Most Modified Files</h2>
+            <iframe src="most_modified_files.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Most Modified Files (All)</h2>
+            <iframe src="most_modified_files_all.html"></iframe>
+        </div>
+
+       
+        <div class="graph-frame">
+            <h2>Users - Most Adds</h2>
+            <iframe src="users_most_adds.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Users - Most Adds (All)</h2>
+            <iframe src="users_most_adds_all.html"></iframe>
+        </div>
+
+
+
+        <div class="graph-frame">
+            <h2>Users - Most Deletes</h2>
+            <iframe src="users_most_deletes.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Users - Most Deletes (All)</h2>
+            <iframe src="users_most_deletes_all.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Users - Most Edits</h2>
+            <iframe src="users_most_edits.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Users - Most Edits (All)</h2>
+            <iframe src="users_most_edits_all.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Operations Per Biome</h2>
+            <iframe src="operations_per_biome.html"></iframe>
+        </div>
+
+        <div class="graph-frame">
+            <h2>Users - Most Changelists</h2>
+            <iframe src="users_most_changelists.html"></iframe>
+        </div>
+
+    </div>
+    <script>
+        const graphContainer = document.querySelector('.graph-container');
+        const graphFrames = graphContainer.querySelectorAll('.graph-frame');
+
+        function set_frame_css(frame) {
+            if (frame.classList.contains('fullscreen')) {
+              frame.querySelector('iframe').style.height = 'calc(100% - 40px)';
+              frame.querySelector('button').style.visibility = 'visible';
+              frame.querySelector('iframe').style.pointerEvents = 'auto'; // Enable iframe interaction
+            } else {
+              frame.querySelector('iframe').style.height = '400px';
+              frame.querySelector('button').style.visibility = 'hidden';
+              frame.querySelector('iframe').style.pointerEvents = 'none'; // Disable iframe interaction
+            }
+        }
+
+        graphFrames.forEach(frame => {
+          // Add close button
+          const closeButton = document.createElement('button');
+          closeButton.classList.add('close-button');
+          closeButton.textContent = 'X';
+          frame.appendChild(closeButton);
+          frame.addEventListener('click', (event) => {
+            // Ignore clicks on the close button
+            if (event.target === closeButton) return;
+
+            frame.classList.toggle('fullscreen');
+
+            set_frame_css(frame)
+          });
+
+          closeButton.addEventListener('click', () => {
+            frame.classList.remove('fullscreen');
+            frame.querySelector('iframe').style.height = '400px';
+            frame.querySelector('iframe').style.pointerEvents = 'none';
+          });
+
+          set_frame_css(frame)
+        });
+    </script>
+</body>
+</html>
