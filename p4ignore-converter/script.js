@@ -42,26 +42,48 @@ function convertGitignoreToP4ignore(gitignoreContent) {
 }
 
 function expandRegex(patterns) {
-    const bracketRegex = /\[([^\]]+)\]/g;
+    const bracketRegex = XRegExp('\\[([^\\]]+)\\]');
+
     const expandedPatterns = [];
-    for (pattern of patterns) {
-        const match = bracketRegex.exec(pattern);
+
+    for (let pattern of patterns) {
+        const match = XRegExp.exec(pattern, bracketRegex);
         if (!match) {
             expandedPatterns.push(pattern);
-            continue
-        };
+            continue;
+        }
+
         const before = pattern.slice(0, match.index);
         const after = pattern.slice(match.index + match[0].length);
 
-        characters = match[1].split('');
-        for (character of characters) {
+        // Handle character ranges manually
+        const rangeRegex = XRegExp('(?<start>.)\\-(?<end>.)', 'g');
+        let characters = [];
+
+        let charContent = match[1];
+        XRegExp.forEach(charContent, rangeRegex, (rangeMatch) => {
+            const { start, end } = rangeMatch.groups;
+            for (let i = start.charCodeAt(0); i <= end.charCodeAt(0); i++) {
+                characters.push(String.fromCharCode(i));
+            }
+            // Remove the processed range from charContent
+            charContent = charContent.replace(rangeMatch[0], '');
+        });
+
+        // Add remaining individual characters
+        characters.push(...charContent.split(''));
+
+        // Remove duplicates and sort
+        characters = [...new Set(characters)].sort();
+
+        for (let character of characters) {
             expandedPatterns.push(before + character + after);
         }
     }
+
     if (expandedPatterns.length === patterns.length) {
         return expandedPatterns;
     } else {
         return expandRegex(expandedPatterns);
     }
-
 }
