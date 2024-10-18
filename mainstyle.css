@@ -1,0 +1,62 @@
+body {
+    background: linear-gradient(135deg, #1a0133, #240b36, #3e1f47);
+    color: #ff71ce;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    margin: 0;
+    padding: 2 rem;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 1.2rem;
+    text-shadow: 0.2rem 0.2rem #01cdfe;
+    color: #b967ff;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    text-shadow: 0.12rem 0.12rem #01cdfe;
+}
+
+.pixel-art {
+    font-size: 2em;
+    margin: 1.2rem 0;
+    color: #fffb96;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.link-button {
+    background: linear-gradient(45deg, #ff71ce, #b967ff);
+    color: #fffb96;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.link-button:hover {
+    background: linear-gradient(45deg, #b967ff, #01cdfe);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    color: #fffb96;
+}

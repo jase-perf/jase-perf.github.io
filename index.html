@@ -7,65 +7,11 @@
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Jase.town</title>
+    <link rel="stylesheet" href="mainstyle.css">
     <style>
-        body {
-            background: linear-gradient(135deg, #1a0133, #240b36, #3e1f47);
-            color: #ff71ce;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            margin: 0;
-            padding: 2 rem;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
         .container {
             max-width: 50rem;
             margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 1.2rem;
-            text-shadow: 0.2rem 0.2rem #01cdfe;
-            color: #b967ff;
-        }
-
-        .pixel-art {
-            font-size: 2em;
-            margin: 1.2rem 0;
-            color: #fffb96;
-        }
-
-        .links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .link-button {
-            background: linear-gradient(45deg, #ff71ce, #b967ff);
-            color: #fffb96;
-            border: none;
-            padding: 0.7rem 1.2rem;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .link-button:hover {
-            background: linear-gradient(45deg, #b967ff, #01cdfe);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        p {
-            color: #fffb96;
         }
 
         @media (max-width: 600px) {
@@ -85,11 +31,22 @@
         <h1>Jase Lindgren</h1>
         <p>Welcome to my digital space! I'm Jase, a pipeline developer and Perforce Sr. Solutions Engineer passionate
             about VFX, gaming, virtual production and audio.</p>
-        <div class="links">
-            <a href="https://www.linkedin.com/in/jaselindgren/" class="link-button">LinkedIn</a>
-            <a href="https://github.com/jase-perf" class="link-button">GitHub</a>
-            <a href="mailto:jlindgren@perforce.com" class="link-button">Perforce Email</a>
+        <div class="container">
+            <h2>My public pages:</h2>
+            <div class="links">
+                <a href="p4ignore-converter/" class="link-button">GitIgnore -> P4Ignore Converter</a>
+                <a href="uefest2024/" class="link-button">Resources from my Unreal Fest 2024 talk</a>
+            </div>
         </div>
+        <div class="container">
+            <h2>Get in Touch:</h2>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/jaselindgren/" class="link-button">LinkedIn</a>
+                <a href="https://github.com/jase-perf" class="link-button">GitHub</a>
+                <a href="mailto:jlindgren@perforce.com" class="link-button">Perforce Email</a>
+            </div>
+        </div>
+
         <p>Let's connect and create something awesome together!</p>
     </div>
 </body>

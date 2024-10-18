@@ -32,6 +32,8 @@ textarea {
     padding: 1rem;
     border: 1px solid #ddd;
     font-family: monospace;
+    background-color: rgba(255, 255, 255, .7);
+    scrollbar-color: #007bff #a99caa;
     flex-grow: 1;
     /* Allow textareas to expand vertically */
     resize: none;
