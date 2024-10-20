@@ -74,7 +74,6 @@ ${eventStart.setZone('Australia/Sydney').toFormat("ffff")}<br>
 
     icsLink = document.getElementById('invite-ics');
     icsLink.href = generateICSLink(eventTitle, eventStart, eventEnd, eventDescription, eventLocation);
-    icsLink.download = `${eventStart.toFormat("LLLL")}-ma-event.ics`;
 }
 
 
