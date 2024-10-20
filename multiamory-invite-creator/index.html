@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create ICS File</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Create Your Event</h1>
+    <form id="eventForm">
+        <label for="eventTimezone">Time Zone:</label>
+        <select id="eventTimezone">
+        </select><br>
+
+        <label for="eventStart">Start Date and Time:</label>
+        <input type="datetime-local" id="eventStart" name="eventStart" required><br>
+
+        <label for="eventEnd">End Date and Time:</label>
+        <input type="datetime-local" id="eventEnd" name="eventEnd" required><br>
+
+
+        <label for="eventLocation">Zoom Link:</label>
+        <input type="text" id="eventLocation" name="eventLocation"><br>
+
+        <button type="button" onclick="generateLinks()">Generate Invite</button>
+    </form>
+
+    <div id="output">
+        <h2 id="invite-heading">Multiamory Processing and Peer Support Group</h2>
+        <p id="invite-para">We hope you can join us for this month's video call!<br><br>
+            Here is the start time, displayed in various timezones. There are also links at the bottom which will create
+            calendar invites for you to add to your calendar.</p>
+        <h3 id="invite-info">What To Expect</h3>
+        <ul id="invite-info-list">
+            <li>One of the Multiamory hosts will be leading a small group in discussion. Participants are encouraged to
+                bring a topic relevant to their personal lives or current struggles that they would find value in
+                discussing with a group of like-minded, supportive individuals. However, you’re not required to bring
+                something to share - it’s incredibly valuable just to have more folks there to offer their presence and
+                a listening ear.</li>
+            <li>Out of respect for everyone's privacy and confidentiality, you may not bring any guests, unless they
+                have their own Supercast subscription to Multiamory.</li>
+            <li>The group will be closed fifteen minutes after our start time. If you need to show up late, just be sure
+                to discuss the details with us beforehand so we know to let you in.</li>
+            <li>If you have any accessibility needs, such as auto captions, please let us know as soon as possible.</li>
+        </ul>
+        <h3 id="invite-links">Meeting Links</h3>
+        <strong><a id="invite-zoom" target="_blank">Zoom Meeting Link</a></strong><br>
+        <strong><a id="invite-google" target="_blank">Add to Google Calendar</a></strong>
+        <br>
+        <strong><a id="invite-yahoo" target="_blank">Add to Yahoo! Calendar</a></strong>
+        <br>
+        <strong><a id="invite-ics" download="event.ics">Add to iCal, Outlook, and others (.ics)</a></strong>
+    </div>
+
+    <script src=" https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js "></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
