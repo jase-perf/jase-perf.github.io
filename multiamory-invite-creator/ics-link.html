@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Multiamory Event ICS</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Multiamory Event ICS</h1>
+    <p>If the ICS file does not download automatically, you can manually download from the link below.</p>
+    <strong><a id="invite-ics">Add to iCal, Outlook, and others (.ics)</a></strong>
+
+    <script src=" https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js "></script>
+    <script>
+        function generateICSLink({ title, start, end, timestamp, description, location }) {
+            // Format the .ics content (example - adjust as needed)
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:${title}
+BEGIN:VEVENT
+DTSTART:${start}
+DTEND:${end}
+DTSTAMP:${timestamp}
+SUMMARY:${title}
+DESCRIPTION:${description.replace(/\n/g, '\\n')}
+LOCATION:${location}
+END:VEVENT
+END:VCALENDAR`
+
+            return `data:text/calendar;charset=utf8,${encodeURIComponent(icsContent)}`;
+        }
+
+        function getUrlParams() {
+            const params = {};
+            const url = window.location.href;
+            const searchParams = new URLSearchParams(new URL(url).search);
+
+            for (const [key, value] of searchParams) {
+                // Use decodeURIComponent to properly decode the value
+                params[key] = decodeURIComponent(value);
+            }
+
+            return params;
+
+        }
+
+        // Function to generate the custom link
+        function generateCustomLink() {
+            const params = getUrlParams();
+            const icsLink = generateICSLink(params);
+
+            const link = document.getElementById('invite-ics');
+            link.href = icsLink;
+            icsLink.download = `${params["downloadName"]}-ma-event.ics`;
+
+            link.click();
+        }
+
+        // Generate the link when the page loads
+        window.onload = generateCustomLink;
+    </script>
+</body>
+
+</html>

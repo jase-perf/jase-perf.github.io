@@ -6,24 +6,19 @@ function getUTCDateTime(isoDatetime) {
     return datetime.toUTC()
 }
 
+
+
 function generateICSLink(title, start, end, description, location) {
-    // Format the .ics content (example - adjust as needed)
-    const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:${title}
-BEGIN:VEVENT
-DTSTART:${start.toFormat("yyyyMMdd'T'HHmmss'Z'")}
-DTEND:${end.toFormat("yyyyMMdd'T'HHmmss'Z'")}
-DTSTAMP:${DateTime.now().toUTC().toFormat("yyyyMMdd'T'HHmmss'Z'")}
-SUMMARY:${title}
-DESCRIPTION:${description.replace(/\n/g, '\\n')}
-LOCATION:${location}
-END:VEVENT
-END:VCALENDAR`
+    const searchParams = new URLSearchParams();
+    searchParams.append('title', title);
+    searchParams.append('start', start.toFormat("yyyyMMdd'T'HHmmss'Z'"));
+    searchParams.append('end', end.toFormat("yyyyMMdd'T'HHmmss'Z'"));
+    searchParams.append('timestamp', DateTime.now().toUTC().toFormat("yyyyMMdd'T'HHmmss'Z'"));
+    searchParams.append('description', description.replace(/\n/g, '\\n'));
+    searchParams.append('location', location);
 
-    return `data:text/calendar;charset=utf8,${encodeURIComponent(icsContent)}`;
+    return `https://jase.town/multiamory-invite-creator/ics-link.html?${searchParams.toString()}`
 }
-
 
 function generateGCalLink(title, start, end, description, location) {
     const gCalLink = `?action=TEMPLATE&dates=${start.toFormat("yyyyMMdd'T'HHmmss'Z'")}/${end.toFormat("yyyyMMdd'T'HHmmss'Z'")}&details=${description}&location=${location}&text=${title}`
@@ -58,8 +53,7 @@ Out of respect for everyone's privacy and confidentiality, you may not bring any
     heading.textContent = `${eventStart.toFormat("LLLL")} Processing and Peer Support Group`;
 
     firstPara = document.getElementById('invite-para');
-    firstPara.innerHTML = `We hope you can join us for this month's video call!<br><br>
-Here is the start time, displayed in various timezones. There are also links at the bottom which will create calendar invites for you to add to your calendar.<br><br>
+    firstPara.innerHTML = `We hope you can join us for this month's video call!<br><br>Here is the start time, displayed in various time zones. There are also links at the bottom which will create calendar invites for you to add to your calendar.<br><br>
 ${eventStart.setZone('America/Los_Angeles').toFormat("ffff")}<br>
 ${eventStart.setZone('America/New_York').toFormat("ffff")}<br>
 ${eventStart.setZone('Europe/London').toFormat("ffff")}<br>
