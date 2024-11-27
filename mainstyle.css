@@ -1,34 +1,69 @@
-body {
-    background: linear-gradient(135deg, #1a0133, #240b36, #3e1f47);
-    color: #ff71ce;
-    font-family: 'Courier New', monospace;
-    text-align: center;
+html, body {
+    min-height: 100%;
     margin: 0;
-    padding: 2 rem;
-    line-height: 1.6;
-    min-height: 100vh;
+    padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+body {
+    background: linear-gradient(145deg, #022032, #356863, #532473);
+    background-attachment: fixed;
+    color: #fefdec;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    height: 100%;
+}
+
+.container {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 164, 223, 0.731);
+}
 
 h1 {
-    font-size: 3em;
-    margin-bottom: 1.2rem;
-    text-shadow: 0.2rem 0.2rem #01cdfe;
-    color: #b967ff;
+    color: #fc78fe;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px #79F2E6;
 }
+
 
 h2 {
-    font-size: 2em;
-    margin-bottom: 1rem;
-    margin-top: 3rem;
-    text-shadow: 0.12rem 0.12rem #01cdfe;
+    color: #79F2E6;
+    text-align: center;
+    font-size: 1.8em;
+    margin-top: 30px;
+    text-shadow: 1px 1px #F06BF2;
+    border-bottom: 2px solid #fefccf;
+    padding-bottom: 10px;
 }
 
-.pixel-art {
-    font-size: 2em;
-    margin: 1.2rem 0;
-    color: #fffb96;
+h3 {
+    color: #F06BF2;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+h4 {
+    color: #79F2E6;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 15px;
 }
 
 .links {
@@ -38,25 +73,26 @@ h2 {
     gap: 2rem;
 }
 
+.code {
+    color: #c7c7c7;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .link-button {
-    background: linear-gradient(45deg, #ff71ce, #b967ff);
-    color: #fffb96;
-    border: none;
+    background: linear-gradient(45deg, #04588C, #7630D9);
+    color: #fefccf;
+    font-size: .8em;
+    border: 1px solid #79F2E6;
+    border-radius: 8px;
     padding: 0.7rem 1.2rem;
-    font-size: 1em;
     cursor: pointer;
     transition: all 0.3s;
     text-decoration: none;
-    border-radius: 5px;
 }
 
 .link-button:hover {
-    background: linear-gradient(45deg, #b967ff, #01cdfe);
-    color: #ffffff;
+    background: linear-gradient(45deg, #532473, #04588C);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-p {
-    color: #fffb96;
 }
