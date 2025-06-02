@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Talk Title - Unreal Fest 2025 Resources</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: radial-gradient(
+          farthest-corner at 100% 40px,
+          #c71040 0%,
+          #29003d 30%,
+          #04000a 70%
+        );
+        color: white;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Animated star field background */
+      .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 3s infinite alternate;
+      }
+
+      .star:nth-child(odd) {
+        animation-delay: 1s;
+      }
+
+      .star:nth-child(3n) {
+        animation-delay: 2s;
+      }
+
+      @keyframes twinkle {
+        0% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      /* Main content container */
+      .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        min-height: 100vh;
+      }
+
+      /* Header section */
+      .header {
+        text-align: left;
+        margin-bottom: 3rem;
+      }
+
+      .unreal-logo {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        font-weight: bold;
+        color: #2d1b69;
+        font-size: 24px;
+      }
+
+      .event-title {
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .event-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        font-weight: 300;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .talk-title {
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #ff6b9d, #c459f7, #8b2cf5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .speaker-info {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        opacity: 0.8;
+        margin-bottom: 1rem;
+      }
+      .speaker-section {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .speaker-info-text {
+        flex: 1;
+      }
+
+      .speaker-portrait {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .speaker-portrait:hover {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .speaker-section {
+          flex-direction: column;
+          text-align: center;
+          gap: 1.5rem;
+        }
+
+        .speaker-portrait {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      /* Content sections */
+      .content-section {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #ff6b9d;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Resource links */
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .resource-card {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: white;
+        display: block;
+      }
+
+      .resource-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .resource-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #ff6b9d;
+      }
+
+      .resource-description {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      .resource-type {
+        display: inline-block;
+        background: rgba(255, 107, 157, 0.3);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-top: 1rem;
+        border: 1px solid rgba(255, 107, 157, 0.5);
+      }
+
+      /* Simple link list */
+      .link-list {
+        list-style: none;
+      }
+
+      .link-list li {
+        margin-bottom: 1rem;
+      }
+
+      .link-list a {
+        color: #ff6b9d;
+        text-decoration: none;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .link-list a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(10px);
+      }
+
+      .link-list a::before {
+        content: "→";
+        margin-right: 0.8rem;
+        font-weight: bold;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 2rem;
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .content-section {
+          padding: 1.5rem;
+        }
+
+        .resource-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .unreal-logo {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+      }
+
+      /* Utility classes */
+      .text-center {
+        text-align: center;
+      }
+
+      .mb-2 {
+        margin-bottom: 2rem;
+      }
+
+      .mt-2 {
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated star field -->
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="event-title">Unreal Fest</h1>
+        <p class="event-subtitle">Orlando 2025</p>
+        <h2 class="talk-title">
+          Integrate Art, Sound, and Code into Unreal Engine with Perforce P4
+        </h2>
+        <a href="https://jaselindgren.com/" target="_blank" style="text-decoration:none; color: #fff;">
+        <div class="speaker-section">
+          <div class="speaker-info-text">
+            <p class="speaker-info">Jase Lindgren | Senior P4 User Advocate, Perforce Software</p>
+            <!-- <p class="speaker-info">
+              Resources and links from the presentation
+            </p> -->
+          </div>
+          <img
+            src="../images/jase-headshot.jpg"
+            alt="Jase Lindgren"
+            class="speaker-portrait"
+          />
+        </div>
+        </a>
+      </header>
+
+      <!-- Main Content -->
+      <main>
+        <!-- Resource Cards Section -->
+        <section class="content-section">
+          <h3 class="section-title">Key Resources</h3>
+          <div class="resource-grid">
+            <a href="https://github.com/jase-perf/virtual_stream_utility" class="resource-card">
+              <div class="resource-title">Virtual Stream Utility</div>
+              <div class="resource-description">
+                P4V custom tool to help set up and adjust paths for virtual streams in Perforce.
+              </div>
+              <span class="resource-type">custom tool</span>
+            </a>
+
+            <a href="https://gist.github.com/jase-perf/b15b57d72fa8095c732fdbc4ca948903" class="resource-card">
+              <div class="resource-title">P4 Ignore gist</div>
+              <div class="resource-description">
+                Complete* P4 ignore file for Unreal Engine projects. Includes recommendations from Epic plus some extra additions.
+                <p style="font-size: .7em; margin-top: 1rem;">*It may never be complete, however, I will keep updating it as people add comments :)</p>
+              </div>
+              <span class="resource-type">gist</span>
+            </a>
+
+            <a href="https://gist.github.com/jase-perf/3f6328fb66427802090f458775e481df" class="resource-card">
+              <div class="resource-title">P4 Typemap gist</div>
+              <div class="resource-description">
+                P4 Typemap for Unreal, Unity, and Godot projects, as well as common 3D tools.
+                <p style="font-size: .7em; margin-top: 1rem;">I will keep updating it as people add comments :)</p>
+              </div>
+              <span class="resource-type">gist</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="content-section">
+          <h3 class="section-title">Additional Links</h3>
+          <ul class="link-list">
+            <li><a href="https://youtube.com/playlist?list=PLH3pq2J85xsPYn71_yzzsZQKvalTW-duE&si=fD15RyfX_aRarOnC"
+                class="link-button">Perforce Helix Core Beginner's Guide (Youtube)</a>
+            </li>
+            <li><a href="https://youtube.com/playlist?list=PLH3pq2J85xsMDY2AAkzUhTmHIg1S7WN1f&si=m0A1nUCr4JpKgzEW"
+                class="link-button">Perforce Helix Core Admin's Guide (Youtube)</a></li>
+            <li><a href="https://dev.epicgames.com/community/learning/tutorials/8JYW/epic-for-indies-setting-up-an-unreal-engine-studio-the-epic-way">Setting Up a Studio the Epic Way (Ari's 2024 talk)</a></li>
+            <li><a href="https://youtu.be/_cVYfufgziM?si=5pz1OfLLyJXS7vP5">Building Custom Tools and Avoiding Common Pitfalls with Perforce + Unreal Engine (Jase's 2024 Talk)</a></li>
+            <li><a href="https://jaselindgren.com">Contact information</a></li>
+          </ul>
+        </section>
+
+        <!-- Additional Resources -->
+        <!-- <section class="content-section">
+          <h3 class="section-title">Further Reading</h3>
+          <p style="line-height: 1.6; opacity: 0.9">
+            Here you can add additional context, recommendations for further
+            learning, or any other information you'd like to share with
+            attendees. This section is perfect for more detailed explanations or
+            acknowledgments.
+          </p>
+        </section> -->
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2025 Jase Lindgren | Unreal Fest Orlando</p>
+        <p>Thank you for attending!</p>
+      </footer>
+    </div>
+
+    <script>
+      // Generate animated stars
+      function createStars() {
+        const starsContainer = document.getElementById("stars");
+        const numStars = 50;
+
+        for (let i = 0; i < numStars; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+
+          // Random size
+          const size = Math.random() * 3 + 1;
+          star.style.width = size + "px";
+          star.style.height = size + "px";
+
+          // Random position
+          star.style.left = Math.random() * 100 + "%";
+          star.style.top = Math.random() * 100 + "%";
+
+          // Random animation duration
+          star.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+          starsContainer.appendChild(star);
+        }
+      }
+
+      // Initialize stars when page loads
+      document.addEventListener("DOMContentLoaded", createStars);
+    </script>
+  </body>
+</html>
