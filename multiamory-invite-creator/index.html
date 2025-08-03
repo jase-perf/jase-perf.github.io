@@ -30,17 +30,31 @@
 
       <label for="eventLocation">Zoom Link:</label>
       <input type="text" id="eventLocation" name="eventLocation" /><br />
-
-      <button type="button" onclick="generateLinks()">Generate Invite</button>
     </form>
+
+    <div id="copy-buttons">
+      <button id="copy-rich-text">
+        Copy as Rich Text (Supercast/FB/Email)
+      </button>
+      <button id="copy-markdown">Copy to Markdown (Discord)</button>
+    </div>
 
     <div id="output">
       <h2 id="invite-heading">Multiamory Processing and Peer Support Group</h2>
       <p id="invite-para">
-        We hope you can join us for this month's video call!<br /><br />Here is
-        the start time, displayed in various time zones. There are also links at
-        the bottom which will create calendar invites for you to add to your
-        calendar.
+        We hope you can join us for this month's video call!<br />
+      </p>
+      <p id="datetime-local">
+        Here is the start time, displayed in various time zones:<br />
+        [DatetimeHere]
+      </p>
+      <p id="datetime-discord">
+        Here is the start time in your local timezone: [DatetimeHere]
+      </p>
+      <br />
+      <p>
+        There are also links at the bottom which will create calendar events for
+        you to add to your calendar.
       </p>
       <h3 id="invite-info">What To Expect</h3>
       <ul id="invite-info-list">

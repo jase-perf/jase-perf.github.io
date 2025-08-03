@@ -68,6 +68,10 @@ select {
     font-size: 1em;
 }
 
+p#datetime-discord {
+    display: none;
+}
+
 button {
     background-color: #3498db;
     color: #fff;
@@ -81,6 +85,30 @@ button {
 
 button:hover {
     background-color: #2980b9;
+}
+
+/* Copy buttons container */
+#copy-buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#copy-buttons button {
+    flex: 1;
+    min-width: 150px;
+    background-color: #27ae60;
+    font-size: 0.9em;
+    padding: 8px 16px;
+}
+
+#copy-buttons button:hover {
+    background-color: #229954;
+}
+
+#copy-buttons button:active {
+    transform: translateY(1px);
 }
 
 /* Output styles */
