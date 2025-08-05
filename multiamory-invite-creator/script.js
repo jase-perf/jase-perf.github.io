@@ -77,10 +77,9 @@ ${eventStart.setZone("Australia/Sydney").toFormat("ffff")}<br>
 `;
 
   datetimeDiscord = document.getElementById("datetime-discord");
-  datetimeDiscord.innerHTML = datetimeDiscord.innerHTML.replace(
-    "[DatetimeHere]",
-    `&lt;t:${eventStart.toUTC().toSeconds()}:F&gt;`
-  );
+  datetimeDiscord.innerHTML = datetimeDiscord.innerHTML = `&lt;t:${eventStart
+    .toUTC()
+    .toSeconds()}:F&gt;`;
 
   zoomLink = document.getElementById("invite-zoom");
   if (eventLocation) {
