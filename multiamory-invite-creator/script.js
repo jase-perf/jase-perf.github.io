@@ -68,14 +68,13 @@ async function generateInvite() {
   firstPara.innerHTML = `We hope you can join us for this month's video call!<br><br>Here is the start time, displayed in various time zones. There are also links at the bottom which will create calendar invites for you to add to your calendar.<br><br>`;
 
   datetimePara = document.getElementById("datetime-local");
-  datetimePara.innerHTML = datetimePara.innerHTML.replace(
-    "[DatetimeHere]",
-    `${eventStart.setZone("America/Los_Angeles").toFormat("ffff")}<br>
+  datetimePara.innerHTML = datetimePara.innerHTML = `${eventStart
+    .setZone("America/Los_Angeles")
+    .toFormat("ffff")}<br>
 ${eventStart.setZone("America/New_York").toFormat("ffff")}<br>
 ${eventStart.setZone("Europe/London").toFormat("ffff")}<br>
 ${eventStart.setZone("Australia/Sydney").toFormat("ffff")}<br>
-`
-  );
+`;
 
   datetimeDiscord = document.getElementById("datetime-discord");
   datetimeDiscord.innerHTML = datetimeDiscord.innerHTML.replace(
