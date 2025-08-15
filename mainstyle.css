@@ -145,6 +145,16 @@ h6 {
     color: #79F2E6;
 }
 
+/* Image styling */
+.content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5em auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* Code styling */
 .content code {
     background-color: rgba(0, 0, 0, 0.6);
