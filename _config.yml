@@ -1,0 +1,16 @@
+title: Jase.town
+description: Welcome to my digital space! I'm Jase, a pipeline developer and Perforce Sr. Solutions Engineer passionate about VFX, gaming, virtual production and audio.
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+# Custom variables you can use in your templates
+author: Jase Lindgren
+email: jlindgren@perforce.com
+linkedin: https://www.linkedin.com/in/jaselindgren/
+github: https://github.com/jase-perf

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ '/favicon.ico' | relative_url }}"
+    />
+    <title>
+      {% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{
+      site.title }}{% endif %}
+    </title>
+    <link rel="stylesheet" href="{{ '/mainstyle.css' | relative_url }}" />
+  </head>
+
+  <body>
+    <div class="container">
+      {% if page.show_header != false %}
+      <header class="page-header">
+        <h1><a href="{{ '/' | relative_url }}">{{ site.author }}</a></h1>
+        {% if page.title and page.layout != 'home' %}
+        <h2>{{ page.title }}</h2>
+        {% endif %}
+      </header>
+      {% endif %}
+
+      <main class="content">{{ content }}</main>
+
+      {% if page.show_footer != false %}
+      <footer class="page-footer">
+        <div class="links">
+          <a href="{{ site.linkedin }}" class="link-button">LinkedIn</a>
+          <a href="{{ site.github }}" class="link-button">GitHub</a>
+          <a href="mailto:{{ site.email }}" class="link-button"
+            >Perforce Email</a
+          >
+        </div>
+      </footer>
+      {% endif %}
+    </div>
+  </body>
+</html>
