@@ -34,9 +34,9 @@ If you're working solo, you don't need to connect to a P4 server.
 
 ## 3. Ignore Unnecessary Files
 
-It's crucial to ignore folders that shouldn't be included in version control. The simplest way is to use this preconfigured `.p4oneconfig.yaml` file:
+It's crucial to ignore folders that shouldn't be included in version control. The simplest way is to use this preconfigured [.p4oneconfig.yaml file](https://gist.github.com/jase-perf/51b15a0b24d9e0b20495d720445d3c06):
 
-<script src="https://gist.github.com/jase-perf/51b15a0b24d9e0b20495d720445d3c06.js"></script>
+[![Jase's Template .p4oneconfig.yaml](githubgist.png)](https://gist.github.com/jase-perf/51b15a0b24d9e0b20495d720445d3c06)
 
 Just download the file and place it in the root of your workspace. This will ignore key directories like 'DerivedDataCache,' 'Intermediate,' and 'Saved.' 
 
@@ -94,7 +94,7 @@ This ignores the folder `FolderName` and everything inside it, wherever it appea
 | `'**/.DS_Store'` | Mac system files | `.DS_Store` anywhere |
 | `'**/obj/**'` | Build output folders | `obj/`, `MyProject/obj/build.log` |
 
-## Why Use `**/` at the Start?
+### Why Use `**/` at the Start?
 
 Always start patterns with `**/` because:
 - Your project might be inside other folders
