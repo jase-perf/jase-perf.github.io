@@ -45,7 +45,7 @@ You can also ignore specific files or file extensions from within P4One.  Right-
 
 However, we can do a lot more by editing the `.p4oneconfig.yaml` file directly.
 
-This is the basic template for the file:
+This is the basic template for the file in `yaml` format:
 
 ```yaml
 ignore:
