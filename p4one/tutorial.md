@@ -34,33 +34,76 @@ If you're working solo, you don't need to connect to a P4 server.
 
 ## 3. Ignore Unnecessary Files
 
-It's crucial to ignore folders that shouldn't be included in version control, specifically 'DerivedDataCache,' 'Intermediate,' and 'Saved.' These folders will appear once your project is opened in Unreal.
+It's crucial to ignore folders that shouldn't be included in version control. The simplest way is to use this preconfigured `.p4oneconfig.yaml` file:
 
-Right-click each one in P4 One and set them to be ignored.
+<script src="https://gist.github.com/jase-perf/51b15a0b24d9e0b20495d720445d3c06.js"></script>
 
-![Right click on files to set them to be ignored](ignore-folders.png)
+Just download the file and place it in the root of your workspace. This will ignore key directories like 'DerivedDataCache,' 'Intermediate,' and 'Saved.' 
 
+You can also ignore specific files or file extensions from within P4One.  Right-click each one in P4 One and set them to be ignored. This will automatically add a line to your `.p4oneconfig.yaml` file or create one if it doesn't exist.
+![Right click on files to set them to be ignored](ignorefileorextension.png)
+
+However, we can do a lot more by editing the `.p4oneconfig.yaml` file directly.
+
+This is the basic template for the file:
+
+```yaml
+ignore:
+  items:
+    - <Lines for each file path to ignore>
+  pattern_matching: p4oneignore
+```
+
+### Basic Syntax Rules
+
+#### Comments
+Lines starting with `#` are comments and are ignored:
+```yaml
+# This is a comment
+# Use comments to organize your ignore patterns
+```
+
+#### Simple File Names
+To ignore a specific file name anywhere in your project:
+```yaml
+    - '**/filename.txt'
+```
+This ignores any file named `filename.txt` no matter where it is.
+
+#### File Extensions
+To ignore all files with a certain extension:
+```yaml
+    - '**/*.tmp'
+```
+This ignores all `.tmp` files anywhere in your project.
+
+#### Folders
+To ignore entire folders:
+```yaml
+    - '**/FolderName/**'
+```
+This ignores the folder `FolderName` and everything inside it, wherever it appears.
+
+### Example patterns:
+
+| Pattern | What it ignores | Example matches |
+|---------|----------------|-----------------|
+| `'**/*.tmp'` | All temporary files | `cache.tmp`, `MyProject/temp.tmp` |
+| `'**/Saved/**'` | Saved folders and contents | `Saved/`, `MyProject/Saved/config.ini` |
+| `'**/*-Debug.*'` | Files with "-Debug" in name | `Game-Debug.exe`, `MyApp-Debug.dll` |
+| `'**/.DS_Store'` | Mac system files | `.DS_Store` anywhere |
+| `'**/obj/**'` | Build output folders | `obj/`, `MyProject/obj/build.log` |
+
+## Why Use `**/` at the Start?
+
+Always start patterns with `**/` because:
+- Your project might be inside other folders
+- Other people might organize their workspace differently
+- It ensures the pattern works regardless of folder structure
+
+**Example:** If you just write `Saved/**`, it only matches a `Saved` folder at the very top level. But `'**/Saved/**'` matches `Saved` folders anywhere.
 In order to ignore everything inside those folders, open the `.p4oneconfig.yaml` file which was just created at the workspace's root, and open it up in a text editor. Add `/**` to the end of each line so it looks similar to this: 
 
-```yaml
-ignore:
-    items:
-            - JaseOBot/Saved/**
-            - JaseOBot/Intermediate/**
-            - JaseOBot/DerivedDataCache/**
-    pattern_matching: p4oneignore
-```
-
-Alternatively, you could also change to use a regex style ignore pattern and use this template. Just copy and paste this into your .p4oneconfig.yaml file:
-
-```yaml
-ignore:
-    pattern_matching: regex
-    items:
-        - Saved/
-        - Intermediate/
-        - DerivedDataCache/
-```
 
 **Be sure those ignored folders no longer have a + icon on them to know if the Ignore is working correctly.**
 
