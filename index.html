@@ -1,17 +1,871 @@
----
-layout: home
-title: Home
----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Jase Lindgren</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        background: #eceef4;
+        color: #1a1a24;
+        font-family: "Space Mono", monospace;
+      }
 
-<div>
-    <h2>My public pages:</h2>
-    <div class="links">
+      @keyframes gradShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 200% 50%;
+        }
+      }
+      @keyframes glitch {
+        /* baseline calm — everything not listed below sits here */
+        0%,
+        3.3%,
+        4.7%,
+        5.3%,
+        6.7%,
+        21.3%,
+        22.7%,
+        39.3%,
+        40.7%,
+        41.3%,
+        42.7%,
+        43.3%,
+        44.7%,
+        62.3%,
+        63.7%,
+        65.3%,
+        66.7%,
+        84.3%,
+        85.7%,
+        100% {
+          text-shadow: none;
+          transform: translate(0, 0);
+        }
+        4% {
+          text-shadow:
+            -1px 0 #46c8a2,
+            1px 0 #a394f0;
+          transform: translate(1px, 0);
+        }
+        6% {
+          text-shadow:
+            2px 0 #46c8a2,
+            -2px 0 #a394f0;
+          transform: translate(-1px, 0);
+        }
+        22% {
+          text-shadow: 1px 0 #a394f0;
+          transform: translate(0, 1px);
+        }
+        40% {
+          text-shadow: -1px 0 #46c8a2;
+          transform: translate(1px, 0);
+        }
+        42% {
+          text-shadow:
+            2px 0 #a394f0,
+            -1px 0 #46c8a2;
+          transform: translate(-1px, 0);
+        }
+        44% {
+          text-shadow:
+            1px 0 #46c8a2,
+            -1px 0 #a394f0;
+          transform: translate(1px, 1px);
+        }
+        63% {
+          text-shadow:
+            -1px 0 #a394f0,
+            1px 0 #46c8a2;
+          transform: translate(-1px, 0);
+        }
+        66% {
+          text-shadow: 1px 0 #46c8a2;
+          transform: translate(1px, 0);
+        }
+        85% {
+          text-shadow:
+            -2px 0 #46c8a2,
+            1px 0 #a394f0;
+          transform: translate(0, -1px);
+        }
+      }
+      @keyframes waveMove {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-1180px);
+        }
+      }
 
-        <a href="p4one/tutorial" class="link-button">P4 One Tutorial</a>
-        <a href="p4ignore-converter/" class="link-button">GitIgnore -> P4Ignore Converter</a>
-        <a href="uefest2024/" class="link-button">Resources from my Unreal Fest Seattle 2024 talk</a>
-        <a href="unreal-orlando-2025/" class="link-button">Resources from my Unreal Fest Orlando 2025 talk</a>
-        <a href="unreal-bali-2025/" class="link-button">Resources from my Unreal Fest Bali 2025 talk</a>
-        <a href="Bio_Generator/" class="link-button">A small project to make a helpful and customizable bio generator based on your information</a>
+      /* ===== hero ===== */
+      .hero {
+        position: relative;
+        height: 340px;
+        overflow: hidden;
+        background: linear-gradient(180deg, #f2f3f9 0%, #e9ebf3 100%);
+      }
+      .wave {
+        position: absolute;
+        left: 50%;
+        margin-left: -1200px;
+      }
+      .wave-1 {
+        top: 40%;
+        transform: translateY(-50%);
+        opacity: 0.8;
+        filter: blur(3px);
+      }
+      .wave-2 {
+        top: 58%;
+        transform: translateY(-50%);
+        opacity: 0.42;
+        filter: blur(6px);
+      }
+      .wave-3 {
+        top: 30%;
+        transform: translateY(-50%);
+        opacity: 0.3;
+        filter: blur(9px);
+      }
+      .wave-1 g {
+        animation: waveMove 18s linear infinite;
+      }
+      .wave-2 g {
+        animation: waveMove 30s linear infinite;
+      }
+      .wave-3 g {
+        animation: waveMove 44s linear infinite;
+      }
+      .hero-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 24px;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: #5a5570;
+        margin-bottom: 16px;
+      }
+      .hero h1 {
+        font-size: 62px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 1;
+        margin: 0;
+        background-image: linear-gradient(
+          100deg,
+          #1a1a24 0%,
+          #1a1a24 26%,
+          #2fb491 44%,
+          #9a7bf0 58%,
+          #1a1a24 74%,
+          #1a1a24 100%
+        );
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: gradShift 7s linear infinite;
+      }
+      .roleline {
+        font-size: 14px;
+        color: #4a4660;
+        margin-top: 16px;
+        letter-spacing: 0.5px;
+      }
+
+      /* ===== body ===== */
+      .body {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .intro-wrap {
+        padding: 48px 0 8px;
+        text-align: center;
+      }
+      .intro {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #3c3a4c;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .section {
+        padding: 48px 0 8px;
+      }
+      .section-title {
+        font-size: 13px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #6a5fb0;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .section-title .rule {
+        flex: 1;
+        height: 1px;
+        background: rgba(60, 40, 120, 0.18);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      /* ===== cards ===== */
+      .card {
+        display: block;
+        background: #fbfaff;
+        border: 1px solid rgba(60, 40, 120, 0.12);
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 14px 30px rgba(80, 60, 160, 0.07);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 22px 44px rgba(80, 60, 160, 0.16);
+      }
+      .card:hover .glitch {
+        animation: glitch 5s linear infinite;
+      }
+      .card:hover .cta {
+        color: #1a1a24;
+      }
+      .card-bar {
+        height: 5px;
+        background: linear-gradient(90deg, #46c8a2, #a394f0);
+      }
+      .card-body {
+        padding: 22px 24px 20px;
+      }
+      .card-name {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .card-desc {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #56545f;
+        margin: 12px 0 16px;
+      }
+      .card-meta {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        color: #6a6a76;
+      }
+      .card-meta .dot {
+        width: 9px;
+        height: 9px;
+        display: inline-block;
+        margin-right: 7px;
+        border-radius: 50%;
+      }
+      .card-meta .spacer {
+        flex: 1;
+      }
+
+      /* ===== talks ===== */
+      .talk {
+        display: flex;
+        flex-direction: column;
+      }
+      .talk-media {
+        display: block;
+      }
+      .talk-media img {
+        width: 100%;
+        height: 178px;
+        object-fit: cover;
+        display: block;
+      }
+      .talk-series {
+        width: 100%;
+        height: 178px;
+        background: linear-gradient(135deg, #46c8a2, #a394f0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: 2px;
+        font-weight: 700;
+      }
+      .talk-body {
+        padding: 18px 22px 20px;
+      }
+      .talk-venue {
+        font-size: 11px;
+        color: #6a5fb0;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .talk-title {
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 8px;
+        line-height: 1.35;
+        color: inherit;
+        text-decoration: none;
+      }
+      .talk-res {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 12px;
+        color: #6a5fb0;
+        text-decoration: none;
+      }
+      .talk-res:hover {
+        color: #1a1a24;
+        text-decoration: underline;
+      }
+
+      /* ===== footer ===== */
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 36px 0;
+        margin-top: 24px;
+        border-top: 1px solid rgba(60, 40, 120, 0.16);
+        font-size: 12px;
+        color: #6a6a78;
+      }
+      .foot-links {
+        display: flex;
+        gap: 24px;
+      }
+      .foot-link {
+        color: #4a4660;
+        text-decoration: none;
+      }
+      .foot-link:hover {
+        animation: glitch 5s linear infinite;
+        color: #1a1a24;
+      }
+
+      /* ===== responsive ===== */
+      @media (max-width: 720px) {
+        .hero {
+          height: 260px;
+        }
+        .hero h1 {
+          font-size: 38px;
+        }
+        .body {
+          padding: 0 20px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .footer {
+          flex-direction: column;
+          gap: 18px;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- ===== HERO — blurred signal ===== -->
+      <div class="hero">
+        <svg
+          class="wave wave-1"
+          viewBox="0 0 1180 200"
+          width="2400"
+          height="220"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="wgA" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#46c8a2" />
+              <stop offset="1" stop-color="#a394f0" />
+            </linearGradient>
+          </defs>
+          <g>
+            <path
+              d="M0 100 q 73.75 -42 147.5 0 q 73.75 42 147.5 0 q 73.75 -42 147.5 0 q 73.75 42 147.5 0 q 73.75 -42 147.5 0 q 73.75 42 147.5 0 q 73.75 -42 147.5 0 q 73.75 42 147.5 0 q 73.75 -42 147.5 0 q 73.75 42 147.5 0 q 73.75 -42 147.5 0 q 73.75 42 147.5 0 q 73.75 -42 147.5 0 q 73.75 42 147.5 0 q 73.75 -42 147.5 0 q 73.75 42 147.5 0"
+              stroke="url(#wgA)"
+              stroke-width="2.5"
+              fill="none"
+            />
+          </g>
+        </svg>
+        <svg
+          class="wave wave-2"
+          viewBox="0 0 1180 200"
+          width="2400"
+          height="220"
+          preserveAspectRatio="none"
+        >
+          <g>
+            <path
+              d="M0 100 q 98 38 196 0 q 98 -38 196 0 q 98 38 196 0 q 98 -38 196 0 q 98 38 196 0 q 98 -38 196 0 q 98 38 196 0 q 98 -38 196 0 q 98 38 196 0 q 98 -38 196 0 q 98 38 196 0 q 98 -38 196 0"
+              stroke="#9a7bf0"
+              stroke-width="2"
+              fill="none"
+            />
+          </g>
+        </svg>
+        <svg
+          class="wave wave-3"
+          viewBox="0 0 1180 200"
+          width="2400"
+          height="220"
+          preserveAspectRatio="none"
+        >
+          <g>
+            <path
+              d="M0 100 q 130 -50 260 0 q 130 50 260 0 q 130 -50 260 0 q 130 50 260 0 q 130 -50 260 0 q 130 50 260 0 q 130 -50 260 0 q 130 50 260 0 q 130 -50 260 0 q 130 50 260 0"
+              stroke="#46c8a2"
+              stroke-width="2"
+              fill="none"
+            />
+          </g>
+        </svg>
+
+        <div class="hero-inner">
+          <div class="eyebrow">personal // home</div>
+          <h1>JASE LINDGREN</h1>
+          <div class="roleline">
+            Tinkerer&nbsp;&nbsp;·&nbsp;&nbsp;Podcaster&nbsp;&nbsp;·&nbsp;&nbsp;Musician&nbsp;&nbsp;·&nbsp;&nbsp;App
+            Developer&nbsp;&nbsp;·&nbsp;&nbsp;VFX
+            Artist&nbsp;&nbsp;·&nbsp;&nbsp;Public Speaker
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BODY ===== -->
+      <div class="body">
+        <!-- intro -->
+        <div class="intro-wrap">
+          <p class="intro">
+            Seattle-based engineer &amp; P4 evangelist building tools for game
+            and VFX pipelines. I host the In Development podcast, speak at
+            Unreal Fest, and make music on the side.
+          </p>
+        </div>
+
+        <!-- open source -->
+        <div class="section">
+          <div class="section-title">
+            open source <span class="rule"></span>
+          </div>
+          <div class="grid">
+            <a
+              class="card"
+              href="https://github.com/jase-perf/UE-Perforce-Python-Plugin"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">UE-Perforce-Python-Plugin</span>
+                </div>
+                <div class="card-desc">
+                  A foundation for integrating Perforce version control into
+                  Unreal Engine through Blueprint nodes — a starting point for
+                  building custom P4 tools inside UE.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4-agent-kit"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4-agent-kit</span>
+                </div>
+                <div class="card-desc">
+                  Lets AI coding agents work natively with Perforce P4 instead
+                  of assuming Git — turning P4's centralized server into a
+                  real-time multi-agent coordination plane.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4-user-dashboard"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4-user-dashboard</span>
+                </div>
+                <div class="card-desc">
+                  A simple web dashboard for managing users across multiple
+                  Perforce servers.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #e8b15a"></span
+                  >JavaScript<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/agent-partyline"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">agent-partyline</span>
+                </div>
+                <div class="card-desc">
+                  A Claude Code plugin that lets AI agents message each other
+                  locally on your device to coordinate and share updates.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #5aa9e6"></span
+                  >TypeScript<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4_migrate_depot_to_s3"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4_migrate_depot_to_s3</span>
+                </div>
+                <div class="card-desc">
+                  A script to copy a local Perforce depot to S3-compatible
+                  storage.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/helix-dam-text-thumbnail-webhook"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">helix-dam-text-thumbnail-webhook</span>
+                </div>
+                <div class="card-desc">
+                  A webhook that generates thumbnail images for text files in P4
+                  DAM (formerly Helix DAM).
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- recorded talks -->
+        <div class="section">
+          <div class="section-title">
+            recorded talks <span class="rule"></span>
+          </div>
+          <div class="grid">
+            <div class="card talk">
+              <a
+                class="talk-media"
+                href="https://youtu.be/YMEU-bM7mXc"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="https://i.ytimg.com/vi/YMEU-bM7mXc/hqdefault.jpg"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <div class="talk-body">
+                <div class="talk-venue">Unreal Fest Bali — 2025</div>
+                <a
+                  class="talk-title glitch"
+                  href="https://youtu.be/YMEU-bM7mXc"
+                  target="_blank"
+                  rel="noopener"
+                  >Levelling Up: Advanced Perforce Techniques for UE Projects
+                  &amp; Teams</a
+                >
+                <a class="talk-res" href="unreal-bali-2025/">resources →</a>
+              </div>
+            </div>
+
+            <div class="card talk">
+              <a
+                class="talk-media"
+                href="https://youtu.be/_pkJFG85FhM"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="https://i.ytimg.com/vi/_pkJFG85FhM/hqdefault.jpg"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <div class="talk-body">
+                <div class="talk-venue">Unreal Fest Orlando — 2025</div>
+                <a
+                  class="talk-title glitch"
+                  href="https://youtu.be/_pkJFG85FhM"
+                  target="_blank"
+                  rel="noopener"
+                  >Integrate Art, Sound &amp; Code into Unreal Engine with
+                  Perforce P4</a
+                >
+                <a class="talk-res" href="unreal-orlando-2025/">resources →</a>
+              </div>
+            </div>
+
+            <div class="card talk">
+              <a
+                class="talk-media"
+                href="https://youtu.be/_cVYfufgziM"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="https://i.ytimg.com/vi/_cVYfufgziM/hqdefault.jpg"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <div class="talk-body">
+                <div class="talk-venue">Unreal Fest Seattle — 2024</div>
+                <a
+                  class="talk-title glitch"
+                  href="https://youtu.be/_cVYfufgziM"
+                  target="_blank"
+                  rel="noopener"
+                  >Building Custom Tools &amp; Avoiding Common Pitfalls with P4
+                  + Unreal</a
+                >
+                <a class="talk-res" href="uefest2024/">resources →</a>
+              </div>
+            </div>
+
+            <div class="card talk">
+              <a
+                class="talk-media"
+                href="https://youtube.com/playlist?list=PLH3pq2J85xsPYn71_yzzsZQKvalTW-duE"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="talk-series">▶ SERIES</div>
+              </a>
+              <div class="talk-body">
+                <div class="talk-venue">YouTube · Series — 2026</div>
+                <a
+                  class="talk-title glitch"
+                  href="https://youtube.com/playlist?list=PLH3pq2J85xsPYn71_yzzsZQKvalTW-duE"
+                  target="_blank"
+                  rel="noopener"
+                  >In Development — the podcast</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- other projects -->
+        <div class="section">
+          <div class="section-title">
+            other projects <span class="rule"></span>
+          </div>
+          <div class="grid">
+            <a class="card" href="p4ignore-converter/">
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">.gitignore → .p4ignore Converter</span>
+                </div>
+                <div class="card-desc">
+                  Convert a .gitignore file into Perforce .p4ignore format in
+                  your browser.
+                </div>
+                <div class="card-meta">
+                  <span class="spacer"></span
+                  ><span class="glitch cta">open →</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="card" href="skilltree/">
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">Skill Tree Visualizer</span>
+                </div>
+                <div class="card-desc">
+                  Build, edit, and visualize a skill tree.
+                </div>
+                <div class="card-meta">
+                  <span class="spacer"></span
+                  ><span class="glitch cta">open →</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="card" href="p4one/tutorial">
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">P4 One Tutorial</span>
+                </div>
+                <div class="card-desc">
+                  A step-by-step guide to free, fast solo version control with
+                  Perforce P4 One.
+                </div>
+                <div class="card-meta">
+                  <span class="spacer"></span
+                  ><span class="glitch cta">open →</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="card" href="Bio_Generator/">
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">Bio Generator</span>
+                </div>
+                <div class="card-desc">
+                  Generate bios of different lengths from your profile
+                  information, powered by Claude.
+                </div>
+                <div class="card-meta">
+                  <span class="spacer"></span
+                  ><span class="glitch cta">open →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://argonautcreations.com/qr/"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">QR Code Generator</span>
+                </div>
+                <div class="card-desc">
+                  A simple QR code generator, hosted at Argonaut Creations.
+                </div>
+                <div class="card-meta">
+                  <span class="spacer"></span
+                  ><span class="glitch cta">open →</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+          <div class="foot-links">
+            <a
+              class="foot-link"
+              href="https://github.com/jase-perf"
+              target="_blank"
+              rel="noopener"
+              >github</a
+            >
+            <a
+              class="foot-link"
+              href="https://www.linkedin.com/in/jaselindgren/"
+              target="_blank"
+              rel="noopener"
+              >linkedin</a
+            >
+            <a
+              class="foot-link"
+              href="https://www.perforce.com/podcasts/p4/in-development"
+              target="_blank"
+              rel="noopener"
+              >podcast</a
+            >
+          </div>
+          <div>© 2026 Jase Lindgren · Seattle, WA</div>
+        </div>
+      </div>
     </div>
-</div>
+  </body>
+</html>
