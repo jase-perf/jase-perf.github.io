@@ -277,6 +277,7 @@
         align-items: center;
         font-size: 16px;
         font-weight: 700;
+        word-break: break-word;
       }
       .card-desc {
         font-size: 13px;
@@ -493,54 +494,6 @@
           <div class="grid">
             <a
               class="card"
-              href="https://github.com/jase-perf/UE-Perforce-Python-Plugin"
-              target="_blank"
-              rel="noopener"
-            >
-              <div class="card-bar"></div>
-              <div class="card-body">
-                <div class="card-name">
-                  <span class="glitch">UE-Perforce-Python-Plugin</span>
-                </div>
-                <div class="card-desc">
-                  A foundation for integrating Perforce version control into
-                  Unreal Engine through Blueprint nodes — a starting point for
-                  building custom P4 tools inside UE.
-                </div>
-                <div class="card-meta">
-                  <span class="dot" style="background: #46c8a2"></span
-                  >Python<span class="spacer"></span
-                  ><span class="glitch cta">github →</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="card"
-              href="https://github.com/jase-perf/p4-agent-kit"
-              target="_blank"
-              rel="noopener"
-            >
-              <div class="card-bar"></div>
-              <div class="card-body">
-                <div class="card-name">
-                  <span class="glitch">p4-agent-kit</span>
-                </div>
-                <div class="card-desc">
-                  Lets AI coding agents work natively with Perforce P4 instead
-                  of assuming Git — turning P4's centralized server into a
-                  real-time multi-agent coordination plane.
-                </div>
-                <div class="card-meta">
-                  <span class="dot" style="background: #46c8a2"></span
-                  >Python<span class="spacer"></span
-                  ><span class="glitch cta">github →</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="card"
               href="https://github.com/jase-perf/p4-user-dashboard"
               target="_blank"
               rel="noopener"
@@ -564,22 +517,21 @@
 
             <a
               class="card"
-              href="https://github.com/jase-perf/agent-partyline"
+              href="https://github.com/jase-perf/p4v_tool_tabs"
               target="_blank"
               rel="noopener"
             >
               <div class="card-bar"></div>
               <div class="card-body">
                 <div class="card-name">
-                  <span class="glitch">agent-partyline</span>
+                  <span class="glitch">p4v_tool_tabs</span>
                 </div>
                 <div class="card-desc">
-                  A Claude Code plugin that lets AI agents message each other
-                  locally on your device to coordinate and share updates.
+                  Custom tabs for P4V and P4Admin — including AI-assisted help
+                  and a typemap editor — to smooth setup and everyday work.
                 </div>
                 <div class="card-meta">
-                  <span class="dot" style="background: #5aa9e6"></span
-                  >TypeScript<span class="spacer"></span
+                  <span class="spacer"></span
                   ><span class="glitch cta">github →</span>
                 </div>
               </div>
@@ -587,18 +539,19 @@
 
             <a
               class="card"
-              href="https://github.com/jase-perf/p4_migrate_depot_to_s3"
+              href="https://github.com/jase-perf/p4-revert-exclusive-checkout"
               target="_blank"
               rel="noopener"
             >
               <div class="card-bar"></div>
               <div class="card-body">
                 <div class="card-name">
-                  <span class="glitch">p4_migrate_depot_to_s3</span>
+                  <span class="glitch">p4-revert-exclusive-checkout</span>
                 </div>
                 <div class="card-desc">
-                  A script to copy a local Perforce depot to S3-compatible
-                  storage.
+                  A super-user tool to revert files locked in other users'
+                  workspaces — handy for +l exclusive checkouts held by someone
+                  unavailable.
                 </div>
                 <div class="card-meta">
                   <span class="dot" style="background: #46c8a2"></span
@@ -610,18 +563,177 @@
 
             <a
               class="card"
-              href="https://github.com/jase-perf/helix-dam-text-thumbnail-webhook"
+              href="https://github.com/jase-perf/virtual_stream_utility"
               target="_blank"
               rel="noopener"
             >
               <div class="card-bar"></div>
               <div class="card-body">
                 <div class="card-name">
-                  <span class="glitch">helix-dam-text-thumbnail-webhook</span>
+                  <span class="glitch">virtual_stream_utility</span>
                 </div>
                 <div class="card-desc">
-                  A webhook that generates thumbnail images for text files in P4
-                  DAM (formerly Helix DAM).
+                  A GUI tool for building and editing Perforce virtual stream
+                  specs through a visual file-tree interface.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4-reset-user-password"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4-reset-user-password</span>
+                </div>
+                <div class="card-desc">
+                  A quick admin tool to reset a user's password to a random
+                  temporary one and require them to set a new one on next login.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4_bulk_project_creator"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4_bulk_project_creator</span>
+                </div>
+                <div class="card-desc">
+                  A GUI app that bulk-creates users, groups, and depots from a
+                  CSV — populating streams and files from a template depot.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4v_custom_tools"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4v_custom_tools</span>
+                </div>
+                <div class="card-desc">
+                  A bundle of custom tools for P4V and P4Admin.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4_scrubber"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4_scrubber</span>
+                </div>
+                <div class="card-desc">
+                  A deliberately dangerous admin tool for bulk-deleting content
+                  from a P4 server — use with extreme caution.
+                </div>
+                <div class="card-meta">
+                  <span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4_to_gource"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4_to_gource</span>
+                </div>
+                <div class="card-desc">
+                  A CLI that turns Helix Core history into a Gource-style log
+                  for animated depot-activity visualizations.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #46c8a2"></span
+                  >Python<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4-send-webhook"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4-send-webhook</span>
+                </div>
+                <div class="card-desc">
+                  Posts a message to Discord or Slack every time a new
+                  changelist is submitted to Helix Core.
+                </div>
+                <div class="card-meta">
+                  <span class="dot" style="background: #a394f0"></span
+                  >Shell<span class="spacer"></span
+                  ><span class="glitch cta">github →</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="card"
+              href="https://github.com/jase-perf/p4_changelist_size"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="card-bar"></div>
+              <div class="card-body">
+                <div class="card-name">
+                  <span class="glitch">p4_changelist_size</span>
+                </div>
+                <div class="card-desc">
+                  A small script to check the size of a Perforce changelist and
+                  estimate how long it'll take to upload.
                 </div>
                 <div class="card-meta">
                   <span class="dot" style="background: #46c8a2"></span
