@@ -1,70 +1,160 @@
+/* Layout only — colours, fonts and the page background come from
+   ../mainstyle.css. Anything set here is either a widening of the shared
+   .container or something specific to the two-pane converter. */
+
+/* mainstyle.css sets body { height: 100% }, but <html> only has a min-height,
+   so that percentage never resolves and the card can't stretch. A viewport
+   minimum gives the flex column something definite to fill. */
 body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    margin: 2rem;
-    background-color: #f8f8f8;
-    color: #333;
-    display: flex;
-    /* Use flexbox for layout */
-    flex-direction: column;
-    /* Stack elements vertically by default */
-    min-height: 90vh;
-    /* Ensure body takes at least full viewport height */
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
-h1 {
+.page-header {
+    margin-bottom: 1.25rem;
+}
+
+.tagline {
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 0;
+    color: #fefccf;
+    opacity: 0.75;
+    font-size: 0.95rem;
 }
 
-.container {
+/* The shared card caps at 800px, which squeezes two monospace panes into
+   unreadable columns. */
+.container.converter {
+    max-width: 1400px;
+    width: 100%;
+    /* the shared .container carries 20px of padding; without border-box its
+       width:100% would add that on top and overflow the body's own padding */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    /* Stack textareas vertically on smaller screens */
     gap: 1rem;
-    /* Space between textareas */
-    flex-grow: 1;
-    /* Allow container to take up available space */
+}
+
+/* Stacked by default. Deliberately unconstrained in height here: the card
+   inherits flex:1, and pinning it to the viewport would squeeze two stacked
+   panes past the textareas' min-height and make them overlap. */
+.panes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pane {
+    display: flex;
+    flex-direction: column;
+    /* lets a long unbroken line scroll inside the pane rather than widening it */
+    min-width: 0;
+}
+
+.pane label {
+    color: #79F2E6;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
 }
 
 textarea {
-    width: calc(100% - 2rem);
-    padding: 1rem;
-    border: 1px solid #ddd;
-    font-family: monospace;
-    background-color: rgba(255, 255, 255, .7);
-    scrollbar-color: #007bff #a99caa;
-    flex-grow: 1;
-    /* Allow textareas to expand vertically */
-    resize: none;
-    /* Prevent resizing */
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 18rem;
+    padding: 0.85rem 1rem;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #fefdec;
+    border: 1px solid #532473;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    resize: vertical;
+    /* ignore patterns are line-oriented: scroll sideways rather than wrap */
+    white-space: pre;
+    overflow: auto;
+    scrollbar-color: #79F2E6 rgba(0, 0, 0, 0.4);
 }
 
-button {
-    background-color: #007bff;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
+textarea::placeholder {
+    color: #fefdec;
+    opacity: 0.35;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #79F2E6;
+    box-shadow: 0 0 0 2px rgba(121, 242, 230, 0.25);
+}
+
+#p4ignore-output {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+#convert-button {
+    background: linear-gradient(45deg, #04588C, #7630D9);
+    color: #fefccf;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #79F2E6;
+    border-radius: 8px;
+    padding: 0.7rem 2.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    align-self: center;
-    /* Center the button */
+    transition: all 0.3s;
 }
 
-button:hover {
-    background-color: #0069d9;
+#convert-button:hover {
+    background: linear-gradient(45deg, #532473, #04588C);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media (min-width: 800px) {
+/* Empty by default, so it only takes up space once there is something to say. */
+.status-message {
+    margin: 0;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
 
-    /* Adjust breakpoint as needed */
-    .container {
+.status-message:empty {
+    display: none;
+}
+
+.status-message:not(:empty) {
+    color: #ffd479;
+    background-color: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 212, 121, 0.35);
+    border-radius: 6px;
+    padding: 0.65rem 0.9rem;
+}
+
+/* Side by side, and only now is it safe to make the card fill the viewport:
+   the panes sit next to each other, so each gets the full available height. */
+@media (min-width: 900px) {
+    .container.converter {
+        min-height: 0;
+    }
+
+    .panes {
         flex-direction: row;
-        /* Place textareas side-by-side */
+        flex: 1;
+        min-height: 0;
+    }
+
+    .pane {
+        flex: 1 1 0;
+        min-height: 0;
     }
 
     textarea {
-        width: calc(50% - 1rem);
-        /* Each textarea takes about half the width */
+        flex: 1;
     }
 }

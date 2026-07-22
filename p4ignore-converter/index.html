@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>.gitignore to .p4ignore Converter</title>
     <link rel="stylesheet" href="../mainstyle.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>.gitignore to .p4ignore Converter</h1>
-    <div class="container">
-        <textarea id="gitignore-input" placeholder="Paste your .gitignore content here"></textarea>
-        <button id="convert-button">Convert</button>
-        <textarea id="p4ignore-output" readonly placeholder=".p4ignore output will appear here"></textarea>
-    </div>
-    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+    <header class="page-header">
+        <h1>.gitignore to .p4ignore Converter</h1>
+        <p class="tagline">Paste a .gitignore and convert it to Perforce p4ignore syntax.</p>
+    </header>
+
+    <main class="container converter">
+        <div class="panes">
+            <section class="pane">
+                <label for="gitignore-input">.gitignore</label>
+                <textarea id="gitignore-input" spellcheck="false" autocomplete="off"
+                    placeholder="Paste your .gitignore content here"></textarea>
+            </section>
+
+            <section class="pane">
+                <label for="p4ignore-output">.p4ignore</label>
+                <textarea id="p4ignore-output" readonly spellcheck="false"
+                    placeholder=".p4ignore output will appear here"></textarea>
+            </section>
+        </div>
+
+        <div class="actions">
+            <button id="convert-button" type="button">Convert</button>
+        </div>
+
+        <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+    </main>
+
     <script src="script.js"></script>
 </body>
 
