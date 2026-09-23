@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="../mainstyle.css">
     <title>Building Custom Tools with Perforce + Unreal Engine | Unreal Fest Seattle 2024</title>
     <style>
+        /* Embedded video — fills the container, keeps 16:9 at any width */
+        .video-container {
+            max-width: 720px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 2em;
@@ -17,7 +31,7 @@
             h2 {
                 font-size: 1.5em;
             }
-        } */
+        }
     </style>
 </head>
 
@@ -26,6 +40,15 @@
         <h1>Building Custom Tools with Perforce + Unreal Engine</h1>
         <h4>Unreal Fest Seattle - 2024</h4>
         <p style="text-align: center;">Presented by Jase Lindgren</p>
+
+        <h2>Full Presentation on YouTube</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/_cVYfufgziM"
+                title="Building Custom Tools and Avoiding Common Pitfalls with Perforce + Unreal Engine"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
 
         <h2>P4 CLI and P4Python</h2>
         <div class="links">

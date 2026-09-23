@@ -261,11 +261,18 @@
       font-weight: bold;
     }
 
+    /* Embedded video — fills the section, keeps 16:9 at any width */
     .video-container {
-      /* --- Flexbox Centering --- */
-      display: flex;
-      justify-content: center; /* Horizontally center */
-      align-items: center;     /* Vertically center */
+      max-width: 800px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 8px;
     }
 
 
@@ -344,7 +351,7 @@
       <section class="content-section">
         <h3 class="section-title">Full Presentation on YouTube</h3>
         <div class="video-container">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_pkJFG85FhM?si=fKAnAOndi-EQRY75" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/_pkJFG85FhM?si=fKAnAOndi-EQRY75" title="Integrate Art, Sound, and Code into Unreal Engine with Perforce P4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </section>
 
