@@ -287,6 +287,21 @@
         gap: 20px;
       }
 
+      /* Embedded stream — shows the countdown before the webinar, the live
+         stream during it, and the recording afterwards. Same video ID either
+         way, so this never needs changing. */
+      .video-container {
+        max-width: 820px;
+        margin: 0 auto 28px;
+        aspect-ratio: 16 / 9;
+      }
+      .video-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(60, 40, 120, 0.12);
+        box-shadow: 0 14px 30px rgba(80, 60, 160, 0.12);
+      }
+
       /* ===== cards ===== */
       .card {
         display: block;
@@ -592,10 +607,21 @@
         <div class="section">
           <div class="section-title">the talk <span class="rule"></span></div>
           <p class="section-note">
-            Everything from the webinar lands here, and this page keeps getting
-            updated as the links below go live — bookmark it rather than
-            screenshotting it.
+            The stream is below, and it turns into the recording once the
+            webinar ends. Everything else from the talk is on this page, and it
+            keeps getting updated as the links below go live — bookmark it
+            rather than screenshotting it.
           </p>
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/_hoswV9d2pg"
+              title="Game Jam Like the Pros: Practical and Free Uses for Perforce P4"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
           <div class="grid">
             <a class="card" href="GGJ2026_Game-Jam-Like-the-Pros_Jase-Lindgren.pdf">
               <div class="card-bar"></div>
@@ -615,23 +641,29 @@
               </div>
             </a>
 
-            <!-- RECORDING — replace with
-                 <a class="card" href="YOUTUBE_URL" target="_blank" rel="noopener">
-                 once the video is up. -->
-            <div class="card pending">
+            <a
+              class="card"
+              href="https://www.youtube.com/watch?v=_hoswV9d2pg"
+              target="_blank"
+              rel="noopener"
+            >
               <div class="card-bar"></div>
               <div class="card-body">
                 <div class="card-name">
-                  Webinar recording<span class="soon">soon</span>
+                  <span class="glitch">Watch on YouTube</span>
                 </div>
                 <div class="card-desc">
-                  A link to the recording goes here once it is published.
+                  The stream lives on Global Game Jam&#39;s channel — open it
+                  there for the live chat during the webinar, and for the
+                  recording once it is over.
                 </div>
                 <div class="card-meta">
-                  <span class="spacer"></span><span>video</span>
+                  <span class="dot" style="background: #a394f0"></span
+                  >GlobalGameJam<span class="spacer"></span
+                  ><span class="glitch cta">open →</span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
