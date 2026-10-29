@@ -287,8 +287,7 @@
         gap: 20px;
       }
 
-      /* Embedded stream — the StreamYard watch page for now, swapped for
-         IGDA's YouTube recording once it is posted (see YOUTUBE-SWAP below). */
+      /* Embedded YouTube recording of the talk. */
       .video-container {
         max-width: 820px;
         margin: 0 auto 28px;
@@ -608,16 +607,13 @@
           <p class="section-note">
             All my resources from the talk are on this page. I will keep updating links as I release more.
           </p>
-          <!-- YOUTUBE-SWAP: once IGDA posts the recording, replace this
-               iframe's src with https://www.youtube-nocookie.com/embed/VIDEO_ID
-               and restore the YouTube allow/referrerpolicy attributes from
-               ../ggj-2026/index.html. The watch card below changes too. -->
           <div class="video-container">
             <iframe
-              src="https://streamyard.com/watch/BYMV9XFs2Hpd?embed=true"
+              src="https://www.youtube-nocookie.com/embed/WN4ltM7fEQY"
               title="Version Control Is a Job Skill, Not Just a Tool"
               frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
           </div>
@@ -640,29 +636,24 @@
               </div>
             </a>
 
-            <!-- YOUTUBE-SWAP: once IGDA posts the recording, point this href
-                 at https://www.youtube.com/watch?v=VIDEO_ID, rename the card
-                 "Watch on YouTube", reword the description to say the
-                 recording lives on IGDA's channel, and set the meta label to
-                 the channel name. -->
             <a
               class="card"
-              href="https://streamyard.com/watch/BYMV9XFs2Hpd"
+              href="https://www.youtube.com/watch?v=WN4ltM7fEQY"
               target="_blank"
               rel="noopener"
             >
               <div class="card-bar"></div>
               <div class="card-body">
                 <div class="card-name">
-                  <span class="glitch">Watch on StreamYard</span>
+                  <span class="glitch">Watch on YouTube</span>
                 </div>
                 <div class="card-desc">
-                  Open the stream in its own tab for the live chat during the
-                  webinar.
+                  The recording lives on The IGDA&#39;s channel — open it
+                  there to watch in its own tab.
                 </div>
                 <div class="card-meta">
                   <span class="dot" style="background: #a394f0"></span
-                  >StreamYard<span class="spacer"></span
+                  >The IGDA<span class="spacer"></span
                   ><span class="glitch cta">open →</span>
                 </div>
               </div>
