@@ -21,38 +21,69 @@ convertButton.addEventListener('click', () => {
     statusMessage.textContent = describeResult(result);
 });
 
+// Status messages, keyed by the page's <html lang>. The Japanese page
+// (/ja/p4ignore-converter/) loads this same script.
+const MESSAGES = {
+    en: {
+        anchored: n =>
+            `${n} line(s) gained a leading '/': a pattern like ` +
+            `'Assets/aa/' is anchored by git but floats to any depth in P4.`,
+        collapsed: n =>
+            `${n} line(s) had too many character-class combinations ` +
+            `to expand, so their [...] groups were replaced with '*' (which matches more).`,
+        questionMark: n =>
+            `${n} line(s) used '?', which p4ignore does not treat ` +
+            `as a wildcard at all; replaced with '*' (which matches more).`,
+        tripleDot: n =>
+            `${n} line(s) contain a literal '...', which p4 rejects ` +
+            `as a "senseless juxtaposition" — those rules will not match anything.`,
+        truncated: max => `Output stopped at ${max.toLocaleString()} lines.`,
+        separator: ' '
+    },
+    ja: {
+        anchored: n =>
+            `${n}行の先頭に '/' を追加しました。'Assets/aa/' のようなパターンは、` +
+            `gitでは .gitignore のある階層に固定されますが、P4ではどの階層にもマッチしてしまうためです。`,
+        collapsed: n =>
+            `${n}行は文字クラスの組み合わせが多すぎて展開できないため、` +
+            `[...] を '*' に置き換えました（元より広くマッチします）。`,
+        questionMark: n =>
+            `${n}行で '?' が使われていました。p4ignore では '?' はワイルドカードとして扱われないため、` +
+            `'*' に置き換えました（元より広くマッチします）。`,
+        tripleDot: n =>
+            `${n}行にリテラルの '...' が含まれています。p4 はこれを "senseless juxtaposition" として拒否するため、` +
+            `これらのルールは何にもマッチしません。`,
+        truncated: max => `出力は ${max.toLocaleString('ja-JP')} 行で打ち切りました。`,
+        separator: ''
+    }
+};
+
+function messages() {
+    const lang = (document.documentElement.lang || 'en').toLowerCase().split('-')[0];
+    return MESSAGES[lang] || MESSAGES.en;
+}
+
 function describeResult(result) {
+    const m = messages();
     const notes = [];
 
     if (result.anchoredCount > 0) {
-        notes.push(
-            `${result.anchoredCount} line(s) gained a leading '/': a pattern like ` +
-            `'Assets/aa/' is anchored by git but floats to any depth in P4.`
-        );
+        notes.push(m.anchored(result.anchoredCount));
     }
     if (result.collapsedCount > 0) {
-        notes.push(
-            `${result.collapsedCount} line(s) had too many character-class combinations ` +
-            `to expand, so their [...] groups were replaced with '*' (which matches more).`
-        );
+        notes.push(m.collapsed(result.collapsedCount));
     }
     if (result.questionMarkCount > 0) {
-        notes.push(
-            `${result.questionMarkCount} line(s) used '?', which p4ignore does not treat ` +
-            `as a wildcard at all; replaced with '*' (which matches more).`
-        );
+        notes.push(m.questionMark(result.questionMarkCount));
     }
     if (result.tripleDotCount > 0) {
-        notes.push(
-            `${result.tripleDotCount} line(s) contain a literal '...', which p4 rejects ` +
-            `as a "senseless juxtaposition" — those rules will not match anything.`
-        );
+        notes.push(m.tripleDot(result.tripleDotCount));
     }
     if (result.truncated) {
-        notes.push(`Output stopped at ${MAX_TOTAL_LINES.toLocaleString()} lines.`);
+        notes.push(m.truncated(MAX_TOTAL_LINES));
     }
 
-    return notes.join(' ');
+    return notes.join(m.separator);
 }
 
 function convertGitignoreToP4ignore(gitignoreContent) {

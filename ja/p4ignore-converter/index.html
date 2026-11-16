@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>.gitignore → .p4ignore 変換ツール</title>
+    <link rel="alternate" hreflang="en" href="/p4ignore-converter/">
+    <link rel="alternate" hreflang="ja" href="/ja/p4ignore-converter/">
+    <script src="/lang.js"></script>
+    <link rel="stylesheet" href="/mainstyle.css">
+    <link rel="stylesheet" href="/p4ignore-converter/style.css">
+</head>
+
+<body>
+    <header class="page-header">
+        <h1>.gitignore → .p4ignore 変換ツール</h1>
+        <p class="tagline">.gitignore を貼り付けて、Perforce の p4ignore 形式に変換します。</p>
+    </header>
+
+    <main class="container converter">
+        <div class="panes">
+            <section class="pane">
+                <label for="gitignore-input">.gitignore</label>
+                <textarea id="gitignore-input" spellcheck="false" autocomplete="off"
+                    placeholder="ここに .gitignore の内容を貼り付けてください"></textarea>
+            </section>
+
+            <section class="pane">
+                <label for="p4ignore-output">.p4ignore</label>
+                <textarea id="p4ignore-output" readonly spellcheck="false"
+                    placeholder="変換結果の .p4ignore がここに表示されます"></textarea>
+            </section>
+        </div>
+
+        <div class="actions">
+            <button id="convert-button" type="button">変換</button>
+        </div>
+
+        <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="/p4ignore-converter/script.js"></script>
+</body>
+
+</html>
