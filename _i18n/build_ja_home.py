@@ -67,25 +67,25 @@ PAIRS = [
     (
         """                  A simple web dashboard for managing users across multiple
                   Perforce servers.""",
-        """                  複数のPerforceサーバーのユーザーをまとめて管理できる、シンプルなWebダッシュボード。日本語のドキュメントあり。""",
+        """                  複数のPerforceサーバのユーザをまとめて管理できる、シンプルなWebダッシュボード。日本語のドキュメントあり。""",
         1,
     ),
     (
         """                  A GUI app that bulk-creates users, groups, and depots from a
                   CSV — populating streams and files from a template depot.""",
-        """                  CSVからユーザー、グループ、デポを一括作成するGUIアプリ。テンプレートのデポからストリームとファイルも展開します。""",
+        """                  CSVからユーザ、グループ、ディポを一括作成するGUIアプリ。テンプレートのディポからストリームとファイルも展開します。""",
         1,
     ),
     (
         """                  A deliberately dangerous admin tool for bulk-deleting content
                   from a P4 server — use with extreme caution.""",
-        """                  P4サーバーからコンテンツを一括削除する、あえて危険な管理者向けツール。使用には細心の注意を。""",
+        """                  P4サーバからコンテンツを一括削除する、あえて危険な管理者向けツール。使用には細心の注意を。""",
         1,
     ),
     (
         """                  A CLI that turns Perforce P4 history into a Gource-style log
                   for animated depot-activity visualizations.""",
-        """                  Perforce P4の履歴をGource形式のログに変換し、デポのアクティビティをアニメーションで可視化するCLIツール。""",
+        """                  Perforce P4の履歴をGource形式のログに変換し、ディポのアクティビティをアニメーションで可視化するCLIツール。""",
         1,
     ),
     (
@@ -103,7 +103,7 @@ PAIRS = [
         """                  Free tabs and right-click tools for P4V and P4Admin: see
                   who has what checked out, what's changing across the server,
                   and where the space is going. Nothing to install.""",
-        """                  P4VとP4Admin用の無料タブと右クリックツール集。誰が何をチェックアウトしているか、サーバー全体で何が変更されているか、容量がどこで使われているかがひと目でわかります。インストール不要。""",
+        """                  P4VとP4Admin用の無料タブと右クリックツール集。誰が何をチェックアウトしているか、サーバ全体で何が変更されているか、容量がどこで使われているかがひと目でわかります。インストール不要。""",
         1,
     ),
     # --- talks: titles stay English (the talks are in English) ---
@@ -168,12 +168,12 @@ PAIRS = [
     ),
     (
         '<span class="glitch">QR Code Generator</span>',
-        '<span class="glitch">QRコードジェネレーター</span>',
+        '<span class="glitch">QRコードジェネレータ</span>',
         1,
     ),
     (
         """                  A simple QR code generator, hosted at Argonaut Creations.""",
-        """                  シンプルなQRコードジェネレーター。Argonaut Creationsで公開しています。""",
+        """                  シンプルなQRコードジェネレータ。Argonaut Creationsで公開しています。""",
         1,
     ),
     ('<span class="glitch cta">open →</span>', '<span class="glitch cta">開く →</span>', 3),
